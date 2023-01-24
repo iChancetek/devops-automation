@@ -7,7 +7,7 @@ pipeline {
         stage('Build Maven'){
             steps{
                 // checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/iChancetek/devops-automation']]])
-                   checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/iChancetek/devops-automation']]) 
+                   checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Github', url: 'https://github.com/iChancetek/devops-automation']])
                 sh 'mvn clean install'
             }  
         }
