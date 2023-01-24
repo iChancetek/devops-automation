@@ -6,9 +6,10 @@ pipeline {
     stages{
         stage('Build Maven'){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/iChancetek/devops-automation']]])
+                // checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/iChancetek/devops-automation']]])
+                   checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/iChancetek/devops-automation']]) 
                 sh 'mvn clean install'
-            }
+            }  
         }
         stage('Build docker image'){
             steps{
