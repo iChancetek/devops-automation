@@ -21,10 +21,11 @@ pipeline {
         stage('Push image to Hub'){
             steps{
                 script{
-                   withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
-                   sh 'docker login -u ichancetek -p ${dockerhub}'
-
-}
+                  // withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) 
+                  withDockerRegistry(credentialsId: 'dockerhub', url: 'https://hub.docker.com/u/ichancetek') {
+                     sh 'docker login -u ichancetek -p ${dockerhub}'
+                  }
+                  
                    sh 'docker push ichancetek/devops-integration'
                 }
             }
