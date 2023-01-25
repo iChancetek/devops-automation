@@ -22,7 +22,7 @@ pipeline {
             steps{
                 script{
                   // withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) 
-                 withDockerRegistry(credentialsId: 'dockerhub', url: 'https://hub.docker.com/')  {
+                 withDockerRegistry(credentialsId: 'dockerhub', url: 'https://registry.hub.docker.com/')  {
                      sh 'docker login -u ichancetek -u ${dockerub}'
                   }
 
