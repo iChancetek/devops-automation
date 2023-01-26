@@ -26,7 +26,7 @@ pipeline {
                      sh 'docker login -u "ichancetek"  -p "Ch@ncetek869219" docker.io'
                   }
 
-                   sh 'docker push ichancetek/devops-integration'
+                   sh 'docker push ichancetek/devops-integration:0.0.1'
                 }
             }
         }
