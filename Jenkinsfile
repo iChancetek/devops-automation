@@ -23,7 +23,7 @@ pipeline {
                 script{
                   // withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) 
                  withDockerRegistry(credentialsId: 'dockerhub', url: 'https://registry.hub.docker.com/')  {
-                     sh 'docker login -u ${dockerhub}  -p ${dockerhub} '
+                     sh 'winpty docker login -u ${dockerhub}  -p ${dockerhub} '
                   }
 
                    sh 'docker push ichancetek/devops-integration'
